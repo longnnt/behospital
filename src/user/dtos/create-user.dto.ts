@@ -11,5 +11,6 @@ export class CreateUserDto {
   password: string;
 
   @ApiProperty({ default: 'patient', enum: ['patient', 'doctor'] })
+  @IsString()
   role: 'patient' | 'doctor' = 'patient';
 }
