@@ -1,12 +1,12 @@
-import { User } from './../user/user.entity';
-import { IsString, IsEmail, IsPhoneNumber } from 'class-validator';
+import { IsEmail, IsString } from 'class-validator';
 import {
-  Entity,
-  PrimaryGeneratedColumn,
   Column,
-  OneToOne,
+  Entity,
   JoinColumn,
+  OneToOne,
+  PrimaryGeneratedColumn,
 } from 'typeorm';
+import { User } from './../user/user.entity';
 
 @Entity()
 export class Doctor {
@@ -18,11 +18,19 @@ export class Doctor {
   name: string;
 
   @Column()
-  address: string;
+  major: string;
 
   @Column()
-  @IsPhoneNumber()
-  phone: string;
+  position: string;
+
+  @Column()
+  education: string;
+
+  @Column()
+  work_experience: string;
+
+  @Column()
+  age: string;
 
   @Column()
   @IsEmail()

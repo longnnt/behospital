@@ -1,5 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { IsEmail, IsOptional, IsPhoneNumber, IsString } from 'class-validator';
+import { IsEmail, IsOptional, IsString } from 'class-validator';
 
 export class CreateDoctorDto {
   @ApiProperty()
@@ -8,12 +8,23 @@ export class CreateDoctorDto {
 
   @ApiProperty()
   @IsString()
-  address: string;
+  major: string;
 
   @ApiProperty()
   @IsString()
-  @IsPhoneNumber('VN')
-  phone: string;
+  position: string;
+
+  @ApiProperty()
+  @IsString()
+  education: string;
+
+  @ApiProperty()
+  @IsString()
+  work_experience: string;
+
+  @ApiProperty()
+  @IsString()
+  age: string;
 
   @ApiProperty()
   @IsString()
