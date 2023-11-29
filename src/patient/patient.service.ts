@@ -20,4 +20,10 @@ export class PatientService {
 
     return patients;
   }
+
+  async getById(id: string) {
+    const patient = this.patientRepo.findOne({ where: { id } });
+
+    return patient;
+  }
 }

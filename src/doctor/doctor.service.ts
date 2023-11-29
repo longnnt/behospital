@@ -19,4 +19,10 @@ export class DoctorService {
   async get() {
     return await this.doctorRepo.find();
   }
+
+  async getById(id: string) {
+    const doctor = this.doctorRepo.findOne({ where: { id } });
+
+    return doctor;
+  }
 }
