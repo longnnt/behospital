@@ -8,6 +8,7 @@ import { Patient } from './patient/patient.entity';
 import { AppointmentModule } from './appointment/appointment.module';
 import { DoctorModule } from './doctor/doctor.module';
 import { PatientModule } from './patient/patient.module';
+import { MailModule } from './mail/mail.module';
 
 @Module({
   imports: [
@@ -21,6 +22,7 @@ import { PatientModule } from './patient/patient.module';
     DoctorModule,
     PatientModule,
     UserModule,
+    MailModule,
   ],
   controllers: [],
   providers: [],

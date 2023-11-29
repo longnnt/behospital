@@ -21,4 +21,12 @@ export class DoctorController {
 
     return doctor;
   }
+
+  @Get('/:id')
+  @ApiOperation({ summary: 'get details doctor with doctor id' })
+  async getDoctorById(@Param('id') id: string) {
+    const doctor = await this.doctorService.getById(id);
+
+    return doctor;
+  }
 }
