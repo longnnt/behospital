@@ -14,11 +14,11 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.UserController = void 0;
 const common_1 = require("@nestjs/common");
+const swagger_1 = require("@nestjs/swagger");
 const auth_service_1 = require("./auth.service");
 const create_user_dto_1 = require("./dtos/create-user.dto");
-const user_service_1 = require("./user.service");
-const swagger_1 = require("@nestjs/swagger");
 const sign_in_dto_1 = require("./dtos/sign-in.dto");
+const user_service_1 = require("./user.service");
 let UserController = class UserController {
     constructor(userService, authService) {
         this.userService = userService;
@@ -43,13 +43,15 @@ let UserController = class UserController {
 };
 exports.UserController = UserController;
 __decorate([
-    (0, common_1.Get)('/all'),
+    (0, common_1.Get)(),
+    (0, swagger_1.ApiOperation)({ summary: 'get all users' }),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", Promise)
 ], UserController.prototype, "getAllUser", null);
 __decorate([
     (0, common_1.Get)('/:id'),
+    (0, swagger_1.ApiOperation)({ summary: 'get user by id' }),
     __param(0, (0, common_1.Param)('id')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),

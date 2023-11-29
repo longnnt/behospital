@@ -9,6 +9,7 @@ export class PatientController {
   constructor(private patientService: PatientService) {}
 
   @Get()
+  @ApiOperation({ summary: 'get all patient' })
   async get() {
     return await this.patientService.get();
   }

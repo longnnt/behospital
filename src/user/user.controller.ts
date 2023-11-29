@@ -1,10 +1,9 @@
-import { Body, Controller, Get, Param, Post, Req } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post } from '@nestjs/common';
+import { ApiOperation, ApiTags } from '@nestjs/swagger';
 import { AuthService } from './auth.service';
 import { CreateUserDto } from './dtos/create-user.dto';
-import { UserService } from './user.service';
-import { Request } from 'express';
-import { ApiTags } from '@nestjs/swagger';
 import { SignInDto } from './dtos/sign-in.dto';
+import { UserService } from './user.service';
 
 @Controller('user')
 @ApiTags('User')
@@ -14,7 +13,8 @@ export class UserController {
     private authService: AuthService,
   ) {}
 
-  @Get('/all')
+  @Get()
+  @ApiOperation({ summary: 'get all users' })
   async getAllUser() {
     const users = await this.userService.getAll();
 
@@ -22,6 +22,7 @@ export class UserController {
   }
 
   @Get('/:id')
+  @ApiOperation({ summary: 'get user by id' })
   get(@Param('id') id: string) {
     const user = this.userService.getById(id);
 

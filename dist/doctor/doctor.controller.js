@@ -38,8 +38,8 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], DoctorController.prototype, "getDoctor", null);
 __decorate([
-    (0, swagger_1.ApiOperation)({ summary: 'Create information doctor with user id' }),
     (0, common_1.Post)('/:id'),
+    (0, swagger_1.ApiOperation)({ summary: 'Create information doctor with user id' }),
     __param(0, (0, common_1.Body)()),
     __param(1, (0, common_1.Param)('id')),
     __metadata("design:type", Function),
