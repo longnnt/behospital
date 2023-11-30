@@ -1,7 +1,7 @@
-import { DoctorService } from './doctor.service';
-import { Controller, Post, Body, Param, Get } from '@nestjs/common';
-import { CreateDoctorDto } from './dto/create-doctor.dto';
+import { Body, Controller, Get, Param, Post } from '@nestjs/common';
 import { ApiOperation, ApiTags } from '@nestjs/swagger';
+import { DoctorService } from './doctor.service';
+import { CreateDoctorDto } from './dto/create-doctor.dto';
 
 @Controller('doctor')
 @ApiTags('Doctor')
@@ -19,7 +19,7 @@ export class DoctorController {
   async create(@Body() body: CreateDoctorDto, @Param('id') id: string) {
     const doctor = await this.doctorService.create({ ...body, userId: id });
 
-    return doctor;
+    return { doctorId: doctor?.id };
   }
 
   @Get('/:id')

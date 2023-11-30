@@ -13,6 +13,15 @@ export class Appointment {
   @PrimaryGeneratedColumn()
   id: string;
 
+  @Column()
+  name: string;
+
+  @Column()
+  phone: string;
+
+  @Column()
+  age: number;
+
   @ManyToOne(() => Patient, (patient) => patient.id)
   @JoinColumn({ name: 'patientId' })
   patient_id: Patient;

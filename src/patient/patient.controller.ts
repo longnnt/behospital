@@ -16,9 +16,9 @@ export class PatientController {
 
   @Post('/:id')
   @ApiOperation({ summary: 'create patient with user id' })
-  create(@Body() body: CreatePatientDto, @Param('id') id: string) {
-    const patient = this.patientService.create({ ...body, userId: id });
+  async create(@Body() body: CreatePatientDto, @Param('id') id: string) {
+    const patient = await this.patientService.create({ ...body, userId: id });
 
-    return patient;
+    return { patientId: patient?.id };
   }
 }

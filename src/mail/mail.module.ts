@@ -8,22 +8,17 @@ import { MailController } from './mail.controller';
 @Module({
   imports: [
     MailerModule.forRoot({
-      // transport: 'smtps://user@example.com:topsecret@smtp.example.com',
-      // or
       transport: {
-        host: 'smtp.example.com',
+        host: 'smtp.gmail.com',
         secure: false,
         auth: {
-          user: 'user@example.com',
-          pass: 'topsecret',
+          user: 'longnntptit@gmail.com',
+          pass: 'ajhu bscu khsk dkuv',
         },
       },
-      defaults: {
-        from: '"No Reply" <noreply@example.com>',
-      },
       template: {
-        dir: join(__dirname, 'template'),
-        adapter: new HandlebarsAdapter(), // or new PugAdapter() or new EjsAdapter()
+        dir: __dirname + '/templates',
+        adapter: new HandlebarsAdapter(),
         options: {
           strict: true,
         },

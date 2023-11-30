@@ -57,6 +57,7 @@ export class AuthService {
     if (storedHash === hash.toString('hex')) {
       return {
         access_token: await this.jwtService.signAsync(payload),
+        payload,
       };
     }
 

@@ -1,8 +1,19 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { Expose } from 'class-transformer';
-import { IsString } from 'class-validator';
+import { IsNumber, IsString } from 'class-validator';
 
 export class CreateAppointmentDto {
+  @ApiProperty()
+  @IsString()
+  name: string;
+
+  @ApiProperty()
+  @IsString()
+  phone: string;
+
+  @ApiProperty()
+  @IsNumber()
+  age: number;
+
   @IsString()
   @ApiProperty()
   patientId: string;
