@@ -1,12 +1,12 @@
-import { Doctor } from './../doctor/doctor.entity';
-import { Patient } from '../patient/patient.entity';
 import {
-  Entity,
-  PrimaryGeneratedColumn,
   Column,
-  ManyToOne,
+  Entity,
   JoinColumn,
+  ManyToOne,
+  PrimaryGeneratedColumn,
 } from 'typeorm';
+import { Doctor } from './../doctor/doctor.entity';
+import { User } from './../user/user.entity';
 
 @Entity()
 export class Appointment {
@@ -22,13 +22,13 @@ export class Appointment {
   @Column()
   age: number;
 
-  @ManyToOne(() => Patient, (patient) => patient.id)
-  @JoinColumn({ name: 'patientId' })
-  patient_id: Patient;
+  @ManyToOne(() => User, (user) => user.id)
+  @JoinColumn({ name: 'userId' })
+  userId: string;
 
   @ManyToOne(() => Doctor, (doctor) => doctor.id)
   @JoinColumn({ name: 'doctorId' })
-  doctor_id: Doctor;
+  doctorId: string;
 
   @Column()
   date: string;

@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param, Post } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post, Delete } from '@nestjs/common';
 import { ApiOperation, ApiTags } from '@nestjs/swagger';
 import { DoctorService } from './doctor.service';
 import { CreateDoctorDto } from './dto/create-doctor.dto';
@@ -28,5 +28,12 @@ export class DoctorController {
     const doctor = await this.doctorService.getById(id);
 
     return doctor;
+  }
+
+  @Delete('/:id')
+  async delete(@Param('id') id: string) {
+    await this.doctorService.deleteById(id);
+
+    return { message: 'delete doctor successfully' };
   }
 }

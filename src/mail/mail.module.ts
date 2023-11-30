@@ -4,6 +4,8 @@ import { join } from 'path';
 import { HandlebarsAdapter } from '@nestjs-modules/mailer/dist/adapters/handlebars.adapter';
 import { MailService } from './mail.service';
 import { MailController } from './mail.controller';
+import { UserModule } from 'src/user/user.module';
+import { DoctorModule } from 'src/doctor/doctor.module';
 
 @Module({
   imports: [
@@ -24,6 +26,8 @@ import { MailController } from './mail.controller';
         },
       },
     }),
+    UserModule,
+    DoctorModule,
   ],
   providers: [MailService],
   controllers: [MailController],

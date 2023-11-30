@@ -1,5 +1,6 @@
 import { IsEmail, IsString, Length } from 'class-validator';
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Appointment } from 'src/appointment/appointment.entity';
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
 export class User {
@@ -18,4 +19,7 @@ export class User {
   @Column()
   @IsString()
   role: 'patient' | 'doctor';
+
+  @OneToMany(() => Appointment, (appointment) => appointment.userId)
+  appointment: User[];
 }

@@ -1,5 +1,7 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { IsNumber, IsString } from 'class-validator';
+import { User } from 'src/user/user.entity';
+import { DeepPartial } from 'typeorm';
 
 export class CreateAppointmentDto {
   @ApiProperty()
@@ -16,7 +18,7 @@ export class CreateAppointmentDto {
 
   @IsString()
   @ApiProperty()
-  patientId: string;
+  userId: string;
 
   @IsString()
   @ApiProperty()
