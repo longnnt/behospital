@@ -1,11 +1,10 @@
 import { MailerModule } from '@nestjs-modules/mailer';
-import { Module } from '@nestjs/common';
-import { join } from 'path';
 import { HandlebarsAdapter } from '@nestjs-modules/mailer/dist/adapters/handlebars.adapter';
-import { MailService } from './mail.service';
-import { MailController } from './mail.controller';
-import { UserModule } from 'src/user/user.module';
+import { Module } from '@nestjs/common';
 import { DoctorModule } from 'src/doctor/doctor.module';
+import { UserModule } from 'src/user/user.module';
+import { MailController } from './mail.controller';
+import { MailService } from './mail.service';
 
 @Module({
   imports: [
